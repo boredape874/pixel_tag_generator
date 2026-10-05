@@ -58,6 +58,14 @@ assets/js/main.js       시작
 
 ## 라이선스
 
-[Apache License 2.0](LICENSE)
+이 프로젝트는 [CC BY-NC-SA 4.0](LICENSE) (저작자표시-비영리-동일조건변경허락 4.0 국제) 라이선스를 따릅니다.
+
+- **저작자표시:** 쓰거나 고칠 때 BE_STUDIO와 이 저장소 링크를 밝혀야 합니다.
+- **비영리:** 상업적 목적(유료 판매, 유료 서비스·서버 수익용 등)으로 쓸 수 없습니다.
+- **동일조건변경허락:** 고쳐서 공개하면 같은 CC BY-NC-SA 4.0으로 공개해야 합니다.
+
+상업적 이용은 BE_STUDIO 디스코드로 문의해 주세요: https://discord.gg/NBSbvdsmgf
+
+이 도구로 만든 태그 이미지 자체는 자유롭게 써도 됩니다(서버 랭크, 리소스팩 등).
 
 Minecraft는 Mojang Studios의 상표이며, 이 도구는 Mojang·Microsoft와 관련이 없습니다.
