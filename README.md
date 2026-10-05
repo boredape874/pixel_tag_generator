@@ -16,46 +16,6 @@
 - **아이콘:** 내장 7x7·작은 픽셀 아이콘, 여러 색 스프라이트, 이미지 업로드, 아이콘 칩(따로 담는 상자)
 - **내보내기:** PNG(1×~32×), 이미지 복사, 설정 JSON, **Bedrock 글리프 시트(`glyph_E1.png` 등) 칸 단위 내보내기와 `\uE1xx` 문자 복사**
 
-## 로컬에서 실행
-
-정적 파일이라 아무 웹 서버로 열면 됩니다.
-
-```bash
-python -m http.server 8765
-```
-
-브라우저에서 `http://127.0.0.1:8765/` 를 엽니다. `index.html` 을 파일로 직접 열어도 대부분 동작하지만, 이미지 복사 등 일부 기능은 브라우저에 따라 막힐 수 있습니다.
-
-## GitHub Pages 배포
-
-1. 이 저장소를 `main` 브랜치에 푸시합니다.
-2. 저장소 **Settings → Pages** 에서 Source를 **Deploy from a branch**, Branch를 `main` / `/ (root)` 로 저장합니다.
-3. 몇 분 뒤 `https://boredape874.github.io/pixel_tag_generator/` 에서 열립니다.
-
-`.nojekyll` 파일이 있어서 Jekyll 처리 없이 그대로 배포됩니다.
-
-## 구조
-
-```
-index.html              페이지 뼈대, BE_STUDIO 헤더·디스코드 버튼
-assets/css/style.css    스타일 (라이트·다크)
-assets/js/fonts.js      내장 비트맵 폰트, 폰트 업로드
-assets/js/storage.js    IndexedDB (업로드한 폰트·아이콘 보관)
-assets/js/state.js      설정 상태와 기본값
-assets/js/render.js     픽셀 렌더링
-assets/js/preview.js    미리보기·PNG 저장
-assets/js/ui.js         설정 패널
-assets/js/icons.js      아이콘·스프라이트
-assets/js/glyph.js      Bedrock 글리프 시트 내보내기
-assets/js/settings.js   설정 파일
-assets/js/presets.js    태그·글자 스타일 프리셋
-assets/js/presets-extra.js  추가 스타일 41종 × 대표 랭크 20개
-assets/js/brand.js      BE_STUDIO 워드마크
-assets/js/main.js       시작
-```
-
-스크립트는 위 순서대로 일반 `<script>` 로 불러오며 전역 범위를 공유합니다. 순서를 바꾸지 마세요.
-
 ## 라이선스
 
 이 프로젝트는 [CC BY-NC-SA 4.0](LICENSE) (저작자표시-비영리-동일조건변경허락 4.0 국제) 라이선스를 따릅니다.
