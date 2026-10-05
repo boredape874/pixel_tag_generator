@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>픽셀 태그 생성기 · BE_STUDIO</title>
+<meta name="description" content="마인크래프트 랭크 태그, 채팅 접두어, 배지, Bedrock 글리프를 픽셀 아트로 만드는 무료 도구. 한글 픽셀 폰트와 Bedrock 글리프 시트를 지원합니다. BE_STUDIO 제작.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="픽셀 태그 생성기 · BE_STUDIO">
+<meta property="og:description" content="마인크래프트 랭크 태그·채팅 접두어·Bedrock 글리프를 픽셀 아트로 만드는 무료 도구">
+<meta name="theme-color" content="#14161a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="site-in">
+    <a class="brand" href="./" aria-label="BE_STUDIO 픽셀 태그 생성기">
+      <canvas id="brandmark" width="1" height="1" aria-hidden="true"></canvas>
+      <span class="brand-sub">픽셀 태그 생성기</span>
+    </a>
+    <a class="discord-btn" href="https://discord.gg/NBSbvdsmgf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.028C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.076.076 0 0 0-.04.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.956 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.955-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419Z"/></svg>
+      <span>Discord</span>
+    </a>
+  </div>
+</header>
+<div class="wrap">
+  <div class="left">
+    <div class="card">
+      <h2>미리보기</h2>
+      <div id="stage" class="stage checker"><canvas id="pv"></canvas></div>
+      <div class="meta" id="meta"></div>
+      <div class="row" style="justify-content:center;margin-top:8px"><div class="seg" id="pvbg"></div></div>
+    </div>
+    <div class="card">
+      <h2>내보내기</h2>
+      <div class="actions">
+        <button class="primary" id="btnSave">PNG 저장</button>
+        <button id="btnCopy">이미지 복사</button>
+      </div>
+      <div id="outCtl"></div>
+    </div>
+    <details class="card fold" id="foldPresets">
+      <summary>태그 프리셋</summary>
+      <div class="seg" id="pgroups" style="margin:8px 0"></div>
+      <div class="presets" id="presets"></div>
+      <p class="hint">스타일만 바뀌고 선택한 폰트와 아이콘은 유지됩니다.</p>
+    </details>
+    <details class="card fold" id="foldStyles">
+      <summary>글자 스타일 프리셋</summary>
+      <div class="presets" id="tstyles" style="margin-top:8px"></div>
+      <p class="hint">글자 색·그림자·외곽선만 바뀌고 배경은 그대로 둡니다.</p>
+    </details>
+  </div>
+  <div class="cols" id="panel"></div>
+</div>
+<footer class="site-foot">
+  <p class="foot-note">
+    <b>BE_STUDIO</b> · <a href="https://discord.gg/NBSbvdsmgf" target="_blank" rel="noopener">Discord</a> · <a href="https://github.com/boredape874/pixel_tag_generator" target="_blank" rel="noopener">GitHub</a> · Apache License 2.0 ·
+    모든 작업은 브라우저 안에서만 처리되고, 올린 폰트와 이미지는 서버로 보내지 않습니다. ·
+    Minecraft는 Mojang Studios의 상표이며 이 도구는 Mojang·Microsoft와 관련이 없습니다.
+  </p>
+</footer>
+<div id="toast"></div>
+<input type="file" id="fFont" accept=".ttf,.otf,.woff,.woff2" multiple hidden>
+<input type="file" id="fGlyph" accept="image/png" multiple hidden>
+<input type="file" id="fIcon" accept="image/*" multiple hidden>
+<input type="file" id="fJson" accept=".json,application/json" hidden>
+<input type="file" id="fSheet" accept="image/png" hidden>
+<script src="assets/js/fonts.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/state.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/preview.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/glyph.js"></script>
+<script src="assets/js/settings.js"></script>
+<script src="assets/js/presets.js"></script>
+<script src="assets/js/presets-extra.js"></script>
+<script src="assets/js/brand.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
