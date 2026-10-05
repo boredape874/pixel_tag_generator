@@ -17,7 +17,7 @@ function render(){
   stage.style.background=bg==='dark'?'#1e1e22':bg==='light'?'#f2f2f2':bg==='chat'?'linear-gradient(#5d8fd8,#a9c8ef)':'';
 }
 let raf=0;
-function update(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;render();try{localStorage.setItem('pixel-tag-generator:state',JSON.stringify(S))}catch(e){}})}
+function update(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;render();projectSave(true)})}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2200)}
 function fileName(){return (S.text.value.split('\n')[0].trim().replace(/[\\/:*?"<>|]/g,'')||'tag')+'.png'}
 document.getElementById('btnSave').onclick=()=>{if(!LAST.w)return toast('내보낼 내용이 없습니다');layerCanvas(LAST,S.out.scale).toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fileName();a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png')};

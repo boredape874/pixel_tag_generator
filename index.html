@@ -33,8 +33,9 @@
       <div class="meta" id="meta"></div>
       <div class="row" style="justify-content:center;margin-top:8px"><div class="seg" id="pvbg"></div></div>
     </div>
+    <div class="card" id="projectCard"></div>
     <div class="card">
-      <h2>내보내기</h2>
+      <h2>PNG 내보내기</h2>
       <div class="actions">
         <button class="primary" id="btnSave">PNG 저장</button>
         <button id="btnCopy">이미지 복사</button>
@@ -68,6 +69,7 @@
 <input type="file" id="fIcon" accept="image/*" multiple hidden>
 <input type="file" id="fJson" accept=".json,application/json" hidden>
 <input type="file" id="fSheet" accept="image/png" hidden>
+<input type="file" id="fImport" accept=".mcpack,.zip,.json,.png,image/*" multiple hidden>
 <script src="assets/js/fonts.js"></script>
 <script src="assets/js/storage.js"></script>
 <script src="assets/js/state.js"></script>
@@ -79,6 +81,8 @@
 <script src="assets/js/settings.js"></script>
 <script src="assets/js/presets.js"></script>
 <script src="assets/js/presets-extra.js"></script>
+<script src="assets/js/zip.js"></script>
+<script src="assets/js/project.js"></script>
 <script src="assets/js/brand.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

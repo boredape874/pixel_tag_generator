@@ -499,7 +499,7 @@ function renderPresets(){
     S=applyPreset(pr,saved);S.text.font=(pr.text&&pr.text.font)||'b57';S.icons.list=S.icons.list.filter(it=>it.id.startsWith('bi:')||it.id.startsWith('sp:'));
     const L=buildAll();S=saved;
     const c=layerCanvas(L,2);
-    box.append(h('button',{type:'button',title:pr.title||pr.text.value,onclick:()=>{S=applyPreset(pr,S);rebuild()}},c));
+    box.append(h('button',{type:'button',title:pr.title||pr.text.value,onclick:()=>onPresetPick(pr)},c));
   }
 }
 
@@ -561,6 +561,6 @@ function renderTextStyles(){
   for(const ts of TSTYLES){
     S=merge(defaults(),{text:{value:'Abc',font:'b57'},bg:{enabled:false}});
     applyTextStyle(ts);const L=buildAll();S=saved;
-    box.append(h('button',{type:'button',title:ts.n,onclick:()=>{applyTextStyle(ts);rebuild()}},layerCanvas(L,2)));
+    box.append(h('button',{type:'button',title:ts.n,onclick:()=>onTextStylePick(ts)},layerCanvas(L,2)));
   }
 }
