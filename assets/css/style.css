@@ -87,3 +87,9 @@ details.fold>summary:hover{color:var(--text)}
 .tagrow .nm{flex:1;min-width:0;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tagrow .code{font-size:11px;color:var(--muted);font-family:ui-monospace,Consolas,monospace}
 .batch{margin-top:8px;padding:8px 10px;border:1px dashed var(--accent);border-radius:8px;font-size:12px;color:var(--muted)}
+/* 줄 간격 통일: 프리셋 버튼과 태그 목록 미리보기 칸을 고정 높이로 */
+#presets button,#tstyles button{height:46px;min-width:46px;display:inline-flex;align-items:center;justify-content:center}
+#presets canvas,#tstyles canvas{max-height:38px;width:auto}
+.tagrow{height:36px}
+.tagrow .thumb{width:150px;height:28px;flex:none;display:flex;align-items:center}
+.tagrow .thumb canvas{max-height:28px;max-width:150px;width:auto}

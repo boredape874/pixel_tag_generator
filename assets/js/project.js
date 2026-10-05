@@ -32,10 +32,10 @@ function projectSave(fromRender){
   if(!PROJECT){try{localStorage.setItem('pixel-tag-generator:state',JSON.stringify(S))}catch(e){}return}
   syncCur();
   const row=document.querySelector(`.tagrow[data-id="${PROJECT.cur}"]`);
-  if(fromRender&&row&&LAST){const old=row.querySelector('canvas'),c=tagThumb(LAST);old.replaceWith(c);row.querySelector('.nm').textContent=tagLabel(curTag())}
+  if(fromRender&&row&&LAST){const old=row.querySelector('.thumb'),c=tagThumb(LAST);old.replaceWith(c);row.querySelector('.nm').textContent=tagLabel(curTag())}
   clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem(PROJECT_KEY,JSON.stringify(PROJECT))}catch(e){console.warn('프로젝트 자동 저장 실패',e)}},300);
 }
-function tagThumb(L){const z=L.h?Math.max(1,Math.min(3,Math.floor(22/L.h))):1,c=layerCanvas(L,z);c.style.maxWidth='150px';c.style.maxHeight='34px';return c}
+function tagThumb(L){const z=L.h?Math.max(1,Math.min(3,Math.floor(28/L.h))):1,c=layerCanvas(L,z),w=document.createElement('span');w.className='thumb';w.append(c);return w}
 
 /* ── 태그 목록 조작 ── */
 function selectTag(id){if(id===PROJECT.cur)return;syncCur();PROJECT.cur=id;loadState(curTag().state);rebuild();renderProject();projectSave()}
